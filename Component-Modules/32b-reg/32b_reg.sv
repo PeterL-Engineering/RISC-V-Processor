@@ -1,9 +1,9 @@
 module 32b_reg(
-    input logic         clk,
-    input logic         reset,
-    input logic         enable,
-    input logic  [31:0] D,
-    output logic [31:0] Q
+    input   logic        clk,
+    input   logic        reset,
+    input   logic        enable,
+    input   logic [31:0] D,
+    output  logic [31:0] Q
 );
 
 always_ff @(posedge clk, posedge reset) begin
