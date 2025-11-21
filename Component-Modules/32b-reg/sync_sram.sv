@@ -3,9 +3,9 @@ module sync_sram #(
     parameter ADDR_WIDTH = 5
 )(
     // Normal memory interface
-    input   logic                     clk,
-    input   logic                     ce,
-    input   logic                     we,
+    input   logic                     clk,          // Clock
+    input   logic                     ce,           // Chip enable
+    input   logic                     we,           // Write enable
     input   logic [ADDR_WIDTH-1:0]    addr,
     input   logic [ADDR_WIDTH-1:0]    data_in,
     output  logic [ADDR_WIDTH-1:0]    data_out,

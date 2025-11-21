@@ -1,6 +1,8 @@
 module 32b_reg(
-    input logic [31:0] D,
-    input logic clk, reset, enable,
+    input logic         clk,
+    input logic         reset,
+    input logic         enable,
+    input logic  [31:0] D,
     output logic [31:0] Q
 );
 
