@@ -1,23 +1,23 @@
 module sync_sram (
     // Normal memory interface
-    input   logic           clk,          // Clock
-    input   logic           chip_enable,  // Chip enable
-    input   logic           write_enable, // Write enable
-    input   logic [4:0]     addr,         // 32 entries (2^5)
-    input   logic [31:0]    data_in,      // 32-bit data
-    output  logic [31:0]    data_out,     // 32-bit data
+    input   logic           clk,
+    input   logic           chip_enable,
+    input   logic           write_enable,
+    input   logic [4:0]     addr,
+    input   logic [31:0]    data_in,
+    output  logic [31:0]    data_out,
 
     // Initialization interface
-    input   logic           init_en,      // Init enable
-    input   logic [4:0]     init_addr,    // Init address
-    input   logic [31:0]    init_data,    // Init data
-    input   logic           init_we       // Init write enable
+    input   logic           init_en,
+    input   logic [4:0]     init_addr,
+    input   logic [31:0]    init_data,
+    input   logic           init_we
 );
 
-    logic [31:0] memory [0:31];  // 32 entries of 32-bit data
+    logic [31:0] memory [0:31];
 
     always_ff @(posedge clk) begin
-        // Initialization has priority over normal operation
+        // Initialization has priority
         if (init_en && init_we) begin
             memory[init_addr] <= init_data;
         end
@@ -26,8 +26,15 @@ module sync_sram (
             if (write_enable) begin
                 memory[addr] <= data_in;
             end
-            data_out <= memory[addr];
         end
     end
-
+    
+    // Combinational read (immediate)
+    always_comb begin
+        if (chip_enable && !write_enable) begin
+            data_out = memory[addr];
+        end else begin
+            data_out = 'x;
+        end
+    end
 endmodule

@@ -2,7 +2,7 @@ module data_mem(
     input   logic           clk,
     input   logic           reset,
     input   logic           write_enable,
-    input   logic [31:0]    A,      // Memory address (byte address)
+    input   logic [4:0]     A,      // Memory address (byte address)
     input   logic [31:0]    WD,     // Write data (32-bit)
     output  logic [31:0]    RD      // Read data (32-bit)
 );
@@ -24,14 +24,12 @@ module data_mem(
             end
         end
         else if (write_enable) begin
-            // Only write if address is within bounds
-            if (A[31:7] == 25'b0) begin  // Check that upper bits are zero
                 data[word_addr] <= WD;
             end
         end
     end
 
     // Read operation (combinational)
-    assign RD = (A[31:7] == 25'b0) ? data[word_addr] : 32'b0;
+    assign RD = data[word_addr];
 
 endmodule

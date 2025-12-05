@@ -1,4 +1,4 @@
-module 32b_reg(
+module reg_32b(
     input   logic        clk,
     input   logic        reset,
     input   logic        enable,
