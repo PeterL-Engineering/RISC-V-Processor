@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_32b_reg;
+module reg_32b_tb;
     // DUT signals
     logic        clk;
     logic        reset;

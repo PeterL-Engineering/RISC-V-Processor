@@ -104,7 +104,7 @@ module sync_sram_tb;
         @(posedge clk);  // Write happens here
         #1;  // Small delay for propagation
         
-        chip_enable = 0;
+        chip_enable = 1;
         write_enable = 0;
         
         // Update reference model
@@ -146,7 +146,7 @@ module sync_sram_tb;
         end
         
         @(posedge clk);  // Align to clock edge
-        chip_enable = 0;
+        chip_enable = 1;
         
         test_count++;
         wait_cycles(1);
@@ -207,7 +207,7 @@ module sync_sram_tb;
         
         @(posedge clk);
         #1;
-        chip_enable = 0;
+        chip_enable = 1;
         write_enable = 0;
         init_en = 0;
         init_we = 0;
@@ -244,7 +244,7 @@ module sync_sram_tb;
             error_count++;
         end
         
-        chip_enable = 0;
+        chip_enable = 1;
         wait_cycles(1);
     endtask
     
@@ -289,7 +289,7 @@ module sync_sram_tb;
         end
         
         @(posedge clk);
-        chip_enable = 0;
+        chip_enable = 1;
         wait_cycles(1);
     endtask
     

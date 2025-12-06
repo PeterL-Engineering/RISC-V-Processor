@@ -2,7 +2,7 @@ module data_mem(
     input   logic           clk,
     input   logic           reset,
     input   logic           write_enable,
-    input   logic [4:0]     A,      // Memory address (byte address)
+    input   logic [31:0]    A,      // Memory address (byte address)
     input   logic [31:0]    WD,     // Write data (32-bit)
     output  logic [31:0]    RD      // Read data (32-bit)
 );
