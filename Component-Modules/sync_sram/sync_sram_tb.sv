@@ -358,7 +358,7 @@ module sync_sram_tb;
     // Timeout check
     initial begin
         #1000000;  // 1ms timeout
-        $display("\n⏰ Simulation timeout!");
+        $display("\n Simulation timeout!");
         $finish;
     end
 
