@@ -27,7 +27,6 @@ module data_mem(
                 data[word_addr] <= WD;
             end
         end
-    end
 
     // Read operation (combinational)
     assign RD = data[word_addr];

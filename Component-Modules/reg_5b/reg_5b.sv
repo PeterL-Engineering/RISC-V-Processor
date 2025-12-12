@@ -1,14 +1,14 @@
-module reg_32b(
+module reg_5b(
     input   logic        clk,
     input   logic        reset,
     input   logic        enable,
-    input   logic [31:0] D,
-    output  logic [31:0] Q
+    input   logic [4:0]  D,
+    output  logic [4:0]  Q
 );
 
     always_ff @(posedge clk, posedge reset) begin
         if (reset)
-            Q <= 32'b0;
+            Q <= 5'b0;
         else if (enable)
             Q <= D;
         else
