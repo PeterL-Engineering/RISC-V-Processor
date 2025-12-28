@@ -349,12 +349,6 @@ module sync_sram_tb;
         end
     end
     
-    // Waveform dumping (for debugging)
-    initial begin
-        $dumpfile("sync_sram_tb.vcd");
-        $dumpvars(0, sync_sram_tb);
-    end
-    
     // Timeout check
     initial begin
         #1000000;  // 1ms timeout

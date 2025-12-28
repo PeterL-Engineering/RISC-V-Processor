@@ -284,8 +284,7 @@ module reg_file_tb;
             $display("[%0t]   TESTS FAILED! ✗", $time);
         end
         $display("[%0t] ========================================", $time);
-        
-        #100 $finish;
+        #100 $finish
     end
 
     // Timeout
